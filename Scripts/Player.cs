@@ -67,6 +67,11 @@ public partial class Player : AnimatedSprite2D
 			switch (GetCellData(_tilePos.X, _tilePos.Y - 1))
 			{
 				case 1:
+					// ignore move
+					break;
+				case 2:
+					// move one more direction
+					direction.Y -= 2;
 					break;
 				default:
 					direction.Y -= 1;
@@ -79,6 +84,10 @@ public partial class Player : AnimatedSprite2D
 			{
 				case 1:
 					break;
+				case 2:
+					// move one more direction
+					direction.Y += 2;
+					break;
 				default:
 					direction.Y += 1;
 					break;
@@ -90,16 +99,25 @@ public partial class Player : AnimatedSprite2D
 			{
 				case 1:
 					break;
+				case 2:
+					// move one more direction
+					direction.X -= 2;
+					break;
 				default:
 					direction.X -= 1;
 					break;
 			};
 		}
+
 		if (Input.IsActionPressed("ui_right"))
 		{
 			switch (GetCellData(_tilePos.X + 1, _tilePos.Y))
 			{
 				case 1:
+					break;
+				case 2:
+					// move one more direction
+					direction.X += 2;
 					break;
 				default:
 					direction.X += 1;

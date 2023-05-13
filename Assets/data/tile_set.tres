@@ -15,7 +15,7 @@ texture_region_size = Vector2i(36, 36)
 0:0/4 = 4
 0:0/4/modulate = Color(0, 1, 0, 1)
 0:0/4/custom_data_0 = 6
-1:0/next_alternative_id = 8
+1:0/next_alternative_id = 9
 1:0/0 = 0
 1:0/0/custom_data_0 = 1
 1:0/2 = 2
@@ -29,6 +29,8 @@ texture_region_size = Vector2i(36, 36)
 1:0/5 = 5
 1:0/5/modulate = Color(0.47451, 1, 0, 1)
 1:0/5/custom_data_0 = 4
+1:0/8 = 8
+1:0/8/custom_data_0 = -3
 
 [resource]
 tile_size = Vector2i(36, 36)

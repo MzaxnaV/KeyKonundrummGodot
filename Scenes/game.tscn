@@ -48,7 +48,6 @@ position = Vector2(-48, 0)
 metadata/_edit_group_ = true
 
 [node name="red_top" type="Sprite2D" parent="Bar/left"]
-visible = false
 texture = ExtResource("5_nj3wf")
 
 [node name="blue_top" type="Sprite2D" parent="Bar/left"]
@@ -64,7 +63,6 @@ visible = false
 texture = ExtResource("7_qwuud")
 
 [node name="blue_bottom" type="Sprite2D" parent="Bar/right"]
-visible = false
 texture = ExtResource("8_ck3nr")
 
 [node name="top" type="Node2D" parent="Bar"]
@@ -76,7 +74,6 @@ visible = false
 texture = ExtResource("9_po2ng")
 
 [node name="blue_left" type="Sprite2D" parent="Bar/top"]
-visible = false
 texture = ExtResource("10_rh5sj")
 
 [node name="bottom" type="Node2D" parent="Bar"]
@@ -88,5 +85,4 @@ visible = false
 texture = ExtResource("11_rh1xg")
 
 [node name="blue_right" type="Sprite2D" parent="Bar/bottom"]
-visible = false
 texture = ExtResource("11_xe1ev")
