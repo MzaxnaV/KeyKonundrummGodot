@@ -34,7 +34,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="ViewportEnd" type="Marker2D" parent="."]
-position = Vector2(540, 410)
+position = Vector2(960, 540)
 rotation = -3.14159
 gizmo_extents = 800.0
 
