@@ -41,7 +41,7 @@ public partial class Player : AnimatedSprite2D
 
 		Play();
 
-		if (_tileMap.GetCellTileData(1, _tilePos).GetCustomData("id").As<int>() != 6)
+		if (GetCellData(_tilePos.X, _tilePos.Y) != 6)
 		{
 			Debug.Fail("Start Position not valid, check inspector and set tile pos.");
 		}
@@ -59,24 +59,52 @@ public partial class Player : AnimatedSprite2D
 		{
 			return;
 		}
-
+		
 		var direction = new Vector2I(0, 0);
-
+		
 		if (Input.IsActionPressed("ui_up"))
 		{
-			direction.Y -= 1;
+			switch (GetCellData(_tilePos.X, _tilePos.Y - 1))
+			{
+				case 1:
+					break;
+				default:
+					direction.Y -= 1;
+					break;
+			};
 		}
 		if (Input.IsActionPressed("ui_down"))
 		{
-			direction.Y += 1;
+			switch (GetCellData(_tilePos.X, _tilePos.Y + 1))
+			{
+				case 1:
+					break;
+				default:
+					direction.Y += 1;
+					break;
+			};
 		}
 		if (Input.IsActionPressed("ui_left"))
 		{
-			direction.X -= 1;
+			switch (GetCellData(_tilePos.X - 1, _tilePos.Y))
+			{
+				case 1:
+					break;
+				default:
+					direction.X -= 1;
+					break;
+			};
 		}
 		if (Input.IsActionPressed("ui_right"))
 		{
-			direction.X += 1;
+			switch (GetCellData(_tilePos.X + 1, _tilePos.Y))
+			{
+				case 1:
+					break;
+				default:
+					direction.X += 1;
+					break;
+			};
 		}
 
 		if (direction != new Vector2I(0, 0))
@@ -93,5 +121,11 @@ public partial class Player : AnimatedSprite2D
 	private void OnTimerTimeout()
 	{
 		_isMoving = false;
+	}
+	
+	private int GetCellData(int posX, int posY)
+	{
+		var tileData = _tileMap.GetCellTileData(1, new Vector2I(posX, posY));
+		return tileData != null ? tileData.GetCustomData("id").As<int>() : 0;
 	}
 }
