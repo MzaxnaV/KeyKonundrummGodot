@@ -125,11 +125,15 @@ public partial class Player : AnimatedSprite2D
 						direction.X += x;
 						break;
 					case 3:
+						direction.Y += y;
+						direction.X += x;
 						Debug.Print("Drop");
 						key = false;
 						// change the key to Pick
 						break;
 					case 4:
+						direction.Y += y;
+						direction.X += x;
 						Debug.Print("Pick");
 						// change the key to Drop
 						key = true;
@@ -141,10 +145,18 @@ public partial class Player : AnimatedSprite2D
 				}
 				break;
 			case 3:
+				direction.Y += y;
+				direction.X += x;
 				Debug.Print("Drop");
+				key = false;
+				// change the key to Pick
 				break;
 			case 4:
+				direction.Y += y;
+				direction.X += x;
 				Debug.Print("Pick");
+				// change the key to Drop
+				key = true;
 				break;
 			default:
 				direction.Y += y;
