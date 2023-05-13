@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1hj7ek2vhfs"]
+[gd_scene load_steps=13 format=3 uid="uid://b1hj7ek2vhfs"]
 
 [ext_resource type="SpriteFrames" uid="uid://bc02ygpf44b0v" path="res://Assets/data/sprite_frames.tres" id="2_cuex8"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="2_y2i5e"]
 [ext_resource type="TileSet" uid="uid://3vr7g0j88jq2" path="res://Assets/data/tile_set.tres" id="4_jxltf"]
+[ext_resource type="Texture2D" uid="uid://cndq8xhsshqx" path="res://Assets/BAR.png" id="4_sr31s"]
+[ext_resource type="Texture2D" uid="uid://m4impco8dj5e" path="res://Assets/arrowinbar-whenDropped1.png" id="5_nj3wf"]
+[ext_resource type="Texture2D" uid="uid://bmipv52rx7eg2" path="res://Assets/arrowinbar1.png" id="6_bqqkx"]
+[ext_resource type="Texture2D" uid="uid://086xhjeji4wp" path="res://Assets/arrowinbar-whenDropped3.png" id="7_qwuud"]
+[ext_resource type="Texture2D" uid="uid://cephntlaj0gfi" path="res://Assets/arrowinbar3.png" id="8_ck3nr"]
+[ext_resource type="Texture2D" uid="uid://bt45mnpu1p0i7" path="res://Assets/arrowinbar-whenDropped4.png" id="9_po2ng"]
+[ext_resource type="Texture2D" uid="uid://jpkkyhs3y4sr" path="res://Assets/arrowinbar4.png" id="10_rh5sj"]
+[ext_resource type="Texture2D" uid="uid://bqagoevqjm573" path="res://Assets/arrowinbar-whenDropped2.png" id="11_rh1xg"]
+[ext_resource type="Texture2D" uid="uid://jed3t27oqlc4" path="res://Assets/arrowinbar2.png" id="11_xe1ev"]
 
 [node name="Game" type="Node2D"]
 
@@ -34,3 +43,56 @@ metadata/_edit_group_ = true
 position = Vector2(540, 410)
 rotation = -3.14159
 gizmo_extents = 800.0
+
+[node name="Bar" type="Sprite2D" parent="."]
+position = Vector2(-90, 146)
+rotation = 1.5708
+texture = ExtResource("4_sr31s")
+
+[node name="left" type="Node2D" parent="Bar"]
+position = Vector2(-48, 0)
+metadata/_edit_group_ = true
+
+[node name="red_top" type="Sprite2D" parent="Bar/left"]
+visible = false
+texture = ExtResource("5_nj3wf")
+
+[node name="blue_top" type="Sprite2D" parent="Bar/left"]
+visible = false
+texture = ExtResource("6_bqqkx")
+
+[node name="right" type="Node2D" parent="Bar"]
+position = Vector2(-16, 0)
+metadata/_edit_group_ = true
+
+[node name="red_bottom" type="Sprite2D" parent="Bar/right"]
+visible = false
+texture = ExtResource("7_qwuud")
+
+[node name="blue_bottom" type="Sprite2D" parent="Bar/right"]
+visible = false
+texture = ExtResource("8_ck3nr")
+
+[node name="top" type="Node2D" parent="Bar"]
+position = Vector2(16, 0)
+metadata/_edit_group_ = true
+
+[node name="red_left" type="Sprite2D" parent="Bar/top"]
+visible = false
+texture = ExtResource("9_po2ng")
+
+[node name="blue_left" type="Sprite2D" parent="Bar/top"]
+visible = false
+texture = ExtResource("10_rh5sj")
+
+[node name="bottom" type="Node2D" parent="Bar"]
+position = Vector2(48, 0)
+metadata/_edit_group_ = true
+
+[node name="red_right" type="Sprite2D" parent="Bar/bottom"]
+visible = false
+texture = ExtResource("11_rh1xg")
+
+[node name="blue_right" type="Sprite2D" parent="Bar/bottom"]
+visible = false
+texture = ExtResource("11_xe1ev")

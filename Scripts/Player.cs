@@ -7,6 +7,9 @@ public partial class Player : AnimatedSprite2D
 	[Export] private NodePath _tileMapPath;
 	[Export] private Vector2I _tilePos;
 	
+	[Signal] public delegate bool UiEventHandler();
+	
+	
 	private TileMap _tileMap;
 
 	private Vector2I _size = new Vector2I(36, 36);
