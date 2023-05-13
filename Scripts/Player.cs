@@ -64,65 +64,19 @@ public partial class Player : AnimatedSprite2D
 		
 		if (Input.IsActionPressed("ui_up"))
 		{
-			switch (GetCellData(_tilePos.X, _tilePos.Y - 1))
-			{
-				case 1:
-					// ignore move
-					break;
-				case 2:
-					// move one more direction
-					direction.Y -= 2;
-					break;
-				default:
-					direction.Y -= 1;
-					break;
-			};
+			direction = SetTurn(direction, 0, -1);
 		}
 		if (Input.IsActionPressed("ui_down"))
 		{
-			switch (GetCellData(_tilePos.X, _tilePos.Y + 1))
-			{
-				case 1:
-					break;
-				case 2:
-					// move one more direction
-					direction.Y += 2;
-					break;
-				default:
-					direction.Y += 1;
-					break;
-			};
+			direction = SetTurn(direction, 0, 1);
 		}
 		if (Input.IsActionPressed("ui_left"))
 		{
-			switch (GetCellData(_tilePos.X - 1, _tilePos.Y))
-			{
-				case 1:
-					break;
-				case 2:
-					// move one more direction
-					direction.X -= 2;
-					break;
-				default:
-					direction.X -= 1;
-					break;
-			};
+			direction = SetTurn(direction, -1, 0);
 		}
-
 		if (Input.IsActionPressed("ui_right"))
 		{
-			switch (GetCellData(_tilePos.X + 1, _tilePos.Y))
-			{
-				case 1:
-					break;
-				case 2:
-					// move one more direction
-					direction.X += 2;
-					break;
-				default:
-					direction.X += 1;
-					break;
-			};
+			direction = SetTurn(direction, 1, 0);
 		}
 
 		if (direction != new Vector2I(0, 0))
@@ -145,5 +99,45 @@ public partial class Player : AnimatedSprite2D
 	{
 		var tileData = _tileMap.GetCellTileData(1, new Vector2I(posX, posY));
 		return tileData != null ? tileData.GetCustomData("id").As<int>() : 0;
+	}
+
+	private Vector2I SetTurn(Vector2I direction, int x, int y)
+	{
+		switch (GetCellData(_tilePos.X + x, _tilePos.Y + y))
+		{
+			case 1:
+				break;
+			case 2:
+				switch (GetCellData(_tilePos.X + 2 * x, _tilePos.Y + 2 * y))
+				{
+					case 1:
+						direction.Y += y;
+						direction.X += x;
+						break;
+					case 3:
+						Debug.Print("Drop");
+						break;
+					case 4:
+						Debug.Print("Pick");
+						break;
+					default: 
+						direction.Y += 2 * y;
+						direction.X += 2 * x;
+						break;
+				}
+				break;
+			case 3:
+				Debug.Print("Drop");
+				break;
+			case 4:
+				Debug.Print("Pick");
+				break;
+			default:
+				direction.Y += y;
+				direction.X += x;
+				break;
+		}
+
+		return direction;
 	}
 }
