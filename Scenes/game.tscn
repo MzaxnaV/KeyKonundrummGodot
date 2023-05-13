@@ -36,8 +36,13 @@ animation = &"walk"
 centered = false
 script = ExtResource("2_y2i5e")
 _tileMapPath = NodePath("../Map")
+_barPath = NodePath("../Bar")
 _tilePos = Vector2i(4, 4)
 metadata/_edit_group_ = true
+
+[node name="Timer" type="Timer" parent="Player"]
+wait_time = 0.5
+one_shot = true
 
 [node name="ViewportEnd" type="Marker2D" parent="."]
 position = Vector2(540, 410)
