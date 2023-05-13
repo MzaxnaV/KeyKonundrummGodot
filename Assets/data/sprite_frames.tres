@@ -1,0 +1,48 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bc02ygpf44b0v"]
+
+[ext_resource type="Texture2D" uid="uid://bvm1uevotts1p" path="res://Assets/player/ROBOT1.png" id="1_8mlk3"]
+[ext_resource type="Texture2D" uid="uid://8bixnyh55tnm" path="res://Assets/player/ROBOT3.png" id="2_6lyo5"]
+[ext_resource type="Texture2D" uid="uid://03xxt340587t" path="res://Assets/player/ROBOT5.png" id="3_47sdi"]
+[ext_resource type="Texture2D" uid="uid://dwhem73q3str3" path="res://Assets/player/ROBOT2.png" id="4_ofjod"]
+[ext_resource type="Texture2D" uid="uid://dgtsk2nrwu1tu" path="res://Assets/player/ROBOT4.png" id="5_xlkof"]
+[ext_resource type="Texture2D" uid="uid://2415of4tpf2j" path="res://Assets/player/ROBOT6.png" id="6_1osd4"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8mlk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6lyo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_47sdi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8mlk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ofjod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6lyo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xlkof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_47sdi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1osd4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
