@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://3vr7g0j88jq2" path="res://Assets/data/tile_set.tres" id="1_eiun4"]
 
-[node name="Map" type="TileMap"]
+[node name="Map2" type="TileMap"]
 tile_set = ExtResource("1_eiun4")
 format = 2
 layer_0/name = "ground"
