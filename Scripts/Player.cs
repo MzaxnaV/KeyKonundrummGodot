@@ -113,6 +113,21 @@ public partial class Player : AnimatedSprite2D
 
 	private void SetTurn(ref Vector2I direction, ref bool key, int x, int y)
 	{
+		switch (GetCellData(_tilePos.X, _tilePos.Y))
+		{
+			case 3:
+            	Debug.Print("Drop");
+            	key = false;
+            	// change the key to Pick
+            	break;
+            case 4:
+            	Debug.Print("Pick");
+            	// change the key to Drop
+            	key = true;
+            	break;
+		}
+
+		// check the cell data
 		switch (GetCellData(_tilePos.X + x, _tilePos.Y + y))
 		{
 			case 1:
@@ -124,6 +139,7 @@ public partial class Player : AnimatedSprite2D
 						direction.Y += y;
 						direction.X += x;
 						break;
+					/*
 					case 3:
 						direction.Y += y;
 						direction.X += x;
@@ -138,25 +154,12 @@ public partial class Player : AnimatedSprite2D
 						// change the key to Drop
 						key = true;
 						break;
+					*/
 					default: 
 						direction.Y += 2 * y;
 						direction.X += 2 * x;
 						break;
 				}
-				break;
-			case 3:
-				direction.Y += y;
-				direction.X += x;
-				Debug.Print("Drop");
-				key = false;
-				// change the key to Pick
-				break;
-			case 4:
-				direction.Y += y;
-				direction.X += x;
-				Debug.Print("Pick");
-				// change the key to Drop
-				key = true;
 				break;
 			default:
 				direction.Y += y;
