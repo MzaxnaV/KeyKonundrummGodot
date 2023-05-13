@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="GoGodotGame"
+run/main_scene="res://Scenes/main.tscn"
+config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://icon.png"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/size/resizable=false
+
+[dotnet]
+
+project/assembly_name="GodotGameJamGame"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.0901961, 0.0901961, 0.0901961, 1)

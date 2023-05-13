@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=3 uid="uid://j2nnmtjjo274"]
+
+[ext_resource type="Script" path="res://Scripts/Main.cs" id="1_lk344"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="2_y2i5e"]
+[ext_resource type="Texture2D" uid="uid://bv54q13m2qt72" path="res://Assets/ROBOT1-Sheet-export.png" id="3_hvcka"]
+[ext_resource type="TileSet" uid="uid://3vr7g0j88jq2" path="res://Assets/data/tile_set.tres" id="4_jxltf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oqt3"]
+atlas = ExtResource("3_hvcka")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5ut7"]
+atlas = ExtResource("3_hvcka")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv8x7"]
+atlas = ExtResource("3_hvcka")
+region = Rect2(144, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8pt4"]
+atlas = ExtResource("3_hvcka")
+region = Rect2(36, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nh11"]
+atlas = ExtResource("3_hvcka")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbq3g"]
+atlas = ExtResource("3_hvcka")
+region = Rect2(180, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpvyy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oqt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5ut7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv8x7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oqt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8pt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5ut7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nh11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv8x7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbq3g")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxahq"]
+size = Vector2(36, 36)
+
+[node name="Game" type="Node2D"]
+position = Vector2(153, 18)
+script = ExtResource("1_lk344")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(-100, 30)
+script = ExtResource("2_y2i5e")
+_tileMapPath = NodePath("../Map")
+_animatedSprite2DPath = NodePath("AnimatedSprite2D")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_mpvyy")
+animation = &"walk"
+frame_progress = 0.458427
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(18, 18)
+shape = SubResource("RectangleShape2D_pxahq")
+
+[node name="Map" type="TileMap" parent="."]
+tile_set = ExtResource("4_jxltf")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65543, 0, 1, 65543, 0, 3, 65543, 0, 2, 65543, 0, 4, 65543, 0, 5, 65543, 0, 6, 65543, 0, 7, 65543, 0, 8, 65543, 0, 65536, 65543, 0, 131072, 65543, 0, 196608, 65543, 0, 262144, 65543, 0, 327680, 65543, 0, 393216, 65543, 0, 458752, 65543, 0, 524288, 65543, 0, 524289, 65543, 0, 524290, 65543, 0, 524291, 65543, 0, 524292, 65543, 0, 524293, 65543, 0, 524294, 65543, 0, 524295, 65543, 0, 524296, 65543, 0, 65544, 65543, 0, 131080, 65543, 0, 196616, 65543, 0, 262152, 65543, 0, 327688, 65543, 0, 393224, 65543, 0, 458760, 65543, 0, 65539, 65543, 0, 131075, 65543, 0, 196611, 65543, 0, 262147, 65543, 0, 327683, 65543, 0, 393219, 65543, 0, 458755, 65543, 0, 65537, 65543, 131072, 65538, 65543, 131072, 131074, 65543, 131072, 131073, 65543, 131072, 196610, 65543, 131072, 262146, 65543, 131072, 327682, 65543, 131072, 393218, 65543, 131072, 458754, 65543, 131072, 458753, 65543, 131072, 393217, 65543, 131072, 327681, 65543, 196608, 196609, 65543, 196608, 262145, 7, 196608, 65541, 65543, 196608, 458757, 65543, 196608, 393221, 65543, 0, 262150, 65543, 0, 131077, 65543, 0, 196612, 65543, 262144, 65542, 65543, 262144, 327684, 65543, 262144, 458758, 65543, 262144, 65540, 65543, 131072, 131076, 65543, 131072, 196613, 65543, 131072, 262148, 65543, 131072, 262149, 65543, 131072, 327685, 65543, 131072, 393220, 65543, 131072, 458756, 65543, 131072, 393222, 65543, 131072, 458759, 65543, 131072, 393223, 65543, 131072, 327687, 65543, 131072, 327686, 65543, 131072, 262151, 65543, 131072, 196615, 65543, 131072, 196614, 65543, 131072, 131078, 65543, 131072, 131079, 65543, 131072, 65543, 65543, 131072)
+metadata/_edit_group_ = true
+
+[node name="ViewportEnd" type="Marker2D" parent="."]
+position = Vector2(540, 410)
+rotation = -3.14159
+gizmo_extents = 800.0

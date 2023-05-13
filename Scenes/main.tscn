@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8whe70o5fvco"]
+
+[ext_resource type="PackedScene" uid="uid://j2nnmtjjo274" path="res://Scenes/game.tscn" id="1_go487"]
+
+[node name="Main" type="Node"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+size_2d_override = Vector2i(640, 360)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Game" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_go487")]
+position = Vector2(130, 20)
