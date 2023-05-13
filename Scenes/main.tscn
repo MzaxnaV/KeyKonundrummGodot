@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8whe70o5fvco"]
+[gd_scene load_steps=3 format=3 uid="uid://b8whe70o5fvco"]
 
-[ext_resource type="PackedScene" uid="uid://j2nnmtjjo274" path="res://Scenes/game.tscn" id="1_go487"]
+[ext_resource type="Script" path="res://Scripts/ExitLevel.cs" id="1_8f2s7"]
+[ext_resource type="PackedScene" uid="uid://b1hj7ek2vhfs" path="res://Scenes/game.tscn" id="1_go487"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_8f2s7")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15

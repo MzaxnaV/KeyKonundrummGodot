@@ -5,7 +5,6 @@ using System.Diagnostics;
 public partial class Player : CharacterBody2D
 {
 	[Export] private NodePath _tileMapPath;
-	[Export] private NodePath _animatedSprite2DPath;
 	
 	private TileMap _tileMap;
 
@@ -21,9 +20,14 @@ public partial class Player : CharacterBody2D
 		}
 
 		GetChild<AnimatedSprite2D>(0).Play();
+
+		var data = _tileMap.GetCellTileData(1, Vector2I.Zero);
+		
+		Debug.Print(data.GetCustomData("id").ToString());
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
+		
 	}
 }
