@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 using System.Diagnostics;
 
 public partial class Player : AnimatedSprite2D
@@ -7,13 +7,18 @@ public partial class Player : AnimatedSprite2D
 	[Export] private NodePath _tileMapPath;
 	[Export] private NodePath _barPath;
 	[Export] private Vector2I _tilePos;
-	
+
 	[Signal] public delegate bool UiEventHandler();
 	
 	private TileMap _tileMap;
 	private Sprite2D _bar;
 	private bool _isMoving;
 	private Timer _timer;
+	private bool _keyUp;
+	private bool _keyDown;
+	private bool _keyLeft;
+	private bool _keyRight;
+	
 	private readonly Vector2I _size = new (36, 36);
 
 	public override void _Ready()
@@ -51,6 +56,11 @@ public partial class Player : AnimatedSprite2D
 			Debug.Print(_tilePos.ToString());
 			Position = _size * _tilePos;
 		}
+		
+		_keyUp = true;
+		_keyDown = true;
+		_keyLeft = true;
+		_keyRight = true;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -62,21 +72,21 @@ public partial class Player : AnimatedSprite2D
 		
 		var direction = new Vector2I(0, 0);
 		
-		if (Input.IsActionPressed("ui_up"))
+		if (_keyUp && Input.IsActionJustPressed("ui_up"))
 		{
-			direction = SetTurn(direction, 0, -1);
+			SetTurn(ref direction, ref _keyUp, 0, -1);
 		}
-		if (Input.IsActionPressed("ui_down"))
+		if (_keyDown && Input.IsActionJustPressed("ui_down"))
 		{
-			direction = SetTurn(direction, 0, 1);
+			SetTurn(ref direction, ref _keyDown, 0, 1);
 		}
-		if (Input.IsActionPressed("ui_left"))
+		if (_keyLeft && Input.IsActionJustPressed("ui_left"))
 		{
-			direction = SetTurn(direction, -1, 0);
+			SetTurn(ref direction, ref _keyLeft, -1, 0);
 		}
-		if (Input.IsActionPressed("ui_right"))
+		if (_keyRight && Input.IsActionJustPressed("ui_right"))
 		{
-			direction = SetTurn(direction, 1, 0);
+			SetTurn(ref direction, ref _keyRight, 1, 0);
 		}
 
 		if (direction != new Vector2I(0, 0))
@@ -101,7 +111,7 @@ public partial class Player : AnimatedSprite2D
 		return tileData != null ? tileData.GetCustomData("id").As<int>() : 0;
 	}
 
-	private Vector2I SetTurn(Vector2I direction, int x, int y)
+	private void SetTurn(ref Vector2I direction, ref bool key, int x, int y)
 	{
 		switch (GetCellData(_tilePos.X + x, _tilePos.Y + y))
 		{
@@ -116,9 +126,13 @@ public partial class Player : AnimatedSprite2D
 						break;
 					case 3:
 						Debug.Print("Drop");
+						key = false;
+						// change the key to Pick
 						break;
 					case 4:
 						Debug.Print("Pick");
+						// change the key to Drop
+						key = true;
 						break;
 					default: 
 						direction.Y += 2 * y;
@@ -137,7 +151,5 @@ public partial class Player : AnimatedSprite2D
 				direction.X += x;
 				break;
 		}
-
-		return direction;
 	}
 }

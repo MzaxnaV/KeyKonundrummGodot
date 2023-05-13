@@ -48,10 +48,10 @@ position = Vector2(-48, 0)
 metadata/_edit_group_ = true
 
 [node name="red_top" type="Sprite2D" parent="Bar/left"]
+visible = false
 texture = ExtResource("5_nj3wf")
 
 [node name="blue_top" type="Sprite2D" parent="Bar/left"]
-visible = false
 texture = ExtResource("6_bqqkx")
 
 [node name="right" type="Node2D" parent="Bar"]
