@@ -178,7 +178,7 @@ public partial class Player : AnimatedSprite2D
 		if (_tileMapPath != null && _tileMapPath.ToString() != "")
 		{
 			_tileMap = GetNode<TileMap>(_tileMapPath);
-			_playerPos = _tileMap.GetMeta("playerStart").As<Vector2I>();
+			_playerPos = _tileMap.GetMeta("playerstart").As<Vector2I>();
 		}
 		else
 		{

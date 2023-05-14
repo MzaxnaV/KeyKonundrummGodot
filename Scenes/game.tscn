@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://jpkkyhs3y4sr" path="res://Assets/arrowinbar4.png" id="10_rh5sj"]
 [ext_resource type="Texture2D" uid="uid://bqagoevqjm573" path="res://Assets/arrowinbar-whenDropped2.png" id="11_rh1xg"]
 [ext_resource type="Texture2D" uid="uid://jed3t27oqlc4" path="res://Assets/arrowinbar2.png" id="11_xe1ev"]
-[ext_resource type="PackedScene" uid="uid://xcik4wwk1v0i" path="res://Scenes/map.tscn" id="12_leklq"]
+[ext_resource type="PackedScene" uid="uid://b8egqkaimprvt" path="res://Scenes/Level1.tscn" id="13_tvuy2"]
 
 [node name="Game" type="Node2D"]
 
@@ -35,6 +35,7 @@ _rightRedPath = NodePath("../Bar/right/red_right")
 _rightBluePath = NodePath("../Bar/right/blue_right")
 _arrowTex = ExtResource("3_xki07")
 metadata/_edit_group_ = true
+metadata/playerStart = Vector2i(4, 4)
 
 [node name="Timer" type="Timer" parent="Player"]
 wait_time = 0.05
@@ -94,4 +95,4 @@ texture = ExtResource("11_rh1xg")
 [node name="blue_bottom" type="Sprite2D" parent="Bar/bottom"]
 texture = ExtResource("11_xe1ev")
 
-[node name="Map" parent="." instance=ExtResource("12_leklq")]
+[node name="Map" parent="." instance=ExtResource("13_tvuy2")]

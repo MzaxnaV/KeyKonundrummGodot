@@ -8,7 +8,7 @@ public partial class ExitLevel : Node
 	{
 		if (Input.IsActionPressed("exit"))
 		{
-			GetTree().Quit();
+			GetTree().ReloadCurrentScene();
 		}
 	}
 
