@@ -116,15 +116,15 @@ public partial class Player : AnimatedSprite2D
 		switch (GetCellData(_tilePos.X, _tilePos.Y))
 		{
 			case 3:
-            	Debug.Print("Drop");
-            	key = false;
-            	// change the key to Pick
-            	break;
-            case 4:
-            	Debug.Print("Pick");
-            	// change the key to Drop
-            	key = true;
-            	break;
+				Debug.Print("Drop");
+				key = false;
+				// change the key to Pick
+				break;
+			case 4:
+				Debug.Print("Pick");
+				// change the key to Drop
+				key = true;
+				break;
 		}
 
 		// check the cell data
