@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1hj7ek2vhfs"]
+[gd_scene load_steps=15 format=3 uid="uid://b1hj7ek2vhfs"]
 
 [ext_resource type="SpriteFrames" uid="uid://bc02ygpf44b0v" path="res://Assets/data/sprite_frames.tres" id="2_cuex8"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="2_y2i5e"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://jpkkyhs3y4sr" path="res://Assets/arrowinbar4.png" id="10_rh5sj"]
 [ext_resource type="Texture2D" uid="uid://bqagoevqjm573" path="res://Assets/arrowinbar-whenDropped2.png" id="11_rh1xg"]
 [ext_resource type="Texture2D" uid="uid://jed3t27oqlc4" path="res://Assets/arrowinbar2.png" id="11_xe1ev"]
+[ext_resource type="PackedScene" uid="uid://bpll3gi2a4jb" path="res://Scenes/Level0.tscn" id="13_qsuiy"]
 [ext_resource type="PackedScene" uid="uid://b8egqkaimprvt" path="res://Scenes/Level1.tscn" id="13_tvuy2"]
 
 [node name="Game" type="Node2D"]
@@ -23,7 +24,7 @@ sprite_frames = ExtResource("2_cuex8")
 animation = &"walk"
 centered = false
 script = ExtResource("2_y2i5e")
-_tileMapPath = NodePath("../Map")
+_tileMapPath = NodePath("../Map2")
 _barPath = NodePath("../Bar")
 _upRedPath = NodePath("../Bar/top/red_top")
 _upBluePath = NodePath("../Bar/top/blue_top")
@@ -96,3 +97,7 @@ texture = ExtResource("11_rh1xg")
 texture = ExtResource("11_xe1ev")
 
 [node name="Map" parent="." instance=ExtResource("13_tvuy2")]
+process_mode = 4
+visible = false
+
+[node name="Map2" parent="." instance=ExtResource("13_qsuiy")]
