@@ -31,7 +31,7 @@ public partial class Player : AnimatedSprite2D
 	
 	[Export] private NodePath _leftRedPath;
 	[Export] private NodePath _leftBluePath;
-    
+	
 	[Export] private NodePath _rightRedPath;
 	[Export] private NodePath _rightBluePath;
 
@@ -39,13 +39,13 @@ public partial class Player : AnimatedSprite2D
 
 	private Sprite2D _upRed;
 	private Sprite2D _upBlue;
-    
+	
 	private Sprite2D _downRed;
 	private Sprite2D _downBlue;
 	
 	private Sprite2D _leftRed;
 	private Sprite2D _leftBlue;
-    
+	
 	private Sprite2D _rightRed;
 	private Sprite2D _rightBlue;
 
@@ -222,7 +222,7 @@ public partial class Player : AnimatedSprite2D
 
 		SetPath(_upRedPath, ref _upRed);
 		SetPath(_upBluePath, ref _upBlue);
-        
+		
 		SetPath(_downRedPath, ref _downRed);
 		SetPath(_downBluePath, ref _downBlue);
 		
