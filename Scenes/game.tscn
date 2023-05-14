@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1hj7ek2vhfs"]
+[gd_scene load_steps=19 format=3 uid="uid://b1hj7ek2vhfs"]
 
 [ext_resource type="SpriteFrames" uid="uid://bc02ygpf44b0v" path="res://Assets/data/sprite_frames.tres" id="2_cuex8"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="2_y2i5e"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://jed3t27oqlc4" path="res://Assets/arrowinbar2.png" id="11_xe1ev"]
 [ext_resource type="PackedScene" uid="uid://bpll3gi2a4jb" path="res://Scenes/Level0.tscn" id="13_qsuiy"]
 [ext_resource type="PackedScene" uid="uid://b8egqkaimprvt" path="res://Scenes/Level1.tscn" id="13_tvuy2"]
+[ext_resource type="PackedScene" uid="uid://budelo333ra7k" path="res://Scenes/Level2.tscn" id="15_sk5rn"]
+[ext_resource type="PackedScene" uid="uid://h8drx5usp032" path="res://Scenes/Level3.tscn" id="16_yi4w7"]
+[ext_resource type="PackedScene" uid="uid://d13yctpu86fi3" path="res://Scenes/level5.tscn" id="17_7gqsa"]
+[ext_resource type="PackedScene" uid="uid://uqv2vqww5jpq" path="res://Scenes/Level6.tscn" id="18_7k54a"]
 
 [node name="Game" type="Node2D"]
 
@@ -24,7 +28,7 @@ sprite_frames = ExtResource("2_cuex8")
 animation = &"walk"
 centered = false
 script = ExtResource("2_y2i5e")
-_tileMapPath = NodePath("../Map2")
+_tileMapPaths = Array[NodePath]([NodePath("../Level0"), NodePath("../Level1"), NodePath("../Level2"), NodePath("../Level3"), NodePath("../Level4"), NodePath("../Level5")])
 _barPath = NodePath("../Bar")
 _upRedPath = NodePath("../Bar/top/red_top")
 _upBluePath = NodePath("../Bar/top/blue_top")
@@ -96,8 +100,26 @@ texture = ExtResource("11_rh1xg")
 [node name="blue_bottom" type="Sprite2D" parent="Bar/bottom"]
 texture = ExtResource("11_xe1ev")
 
-[node name="Map" parent="." instance=ExtResource("13_tvuy2")]
+[node name="Level0" parent="." instance=ExtResource("13_qsuiy")]
 process_mode = 4
 visible = false
 
-[node name="Map2" parent="." instance=ExtResource("13_qsuiy")]
+[node name="Level1" parent="." instance=ExtResource("13_tvuy2")]
+process_mode = 4
+visible = false
+
+[node name="Level2" parent="." instance=ExtResource("15_sk5rn")]
+process_mode = 4
+visible = false
+
+[node name="Level3" parent="." instance=ExtResource("16_yi4w7")]
+process_mode = 4
+visible = false
+
+[node name="Level4" parent="." instance=ExtResource("17_7gqsa")]
+process_mode = 4
+visible = false
+
+[node name="Level5" parent="." instance=ExtResource("18_7k54a")]
+process_mode = 4
+visible = false

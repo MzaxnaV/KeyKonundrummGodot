@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Godot;
+using Godot.Collections;
 
 namespace GodotGameJamGame.Scripts;
 
@@ -20,7 +21,7 @@ public partial class Player : AnimatedSprite2D
 {
 	private static readonly string _className = "Player";
 	
-	[Export] private NodePath _tileMapPath;
+	[Export] private Array<NodePath> _tileMapPaths;
 	[Export] private NodePath _barPath;
 
 	[Export] private NodePath _upRedPath;
@@ -55,6 +56,8 @@ public partial class Player : AnimatedSprite2D
 	private Sprite2D _bar;
 	private bool _isMoving;
 	private Timer _timer;
+
+	private int levelIndex = 0;
 
 	private static readonly Vector2I Size = new (36, 36);
 	private static readonly Vector2I HalfSize = new (18, 18);
@@ -173,18 +176,31 @@ public partial class Player : AnimatedSprite2D
 		}
 	}
 
-	public override void _Ready()
+	private void CheckLevels()
 	{
-		if (_tileMapPath != null && _tileMapPath.ToString() != "")
+		for (int i = 0; i < _tileMapPaths.Count; ++i)
 		{
-			_tileMap = GetNode<TileMap>(_tileMapPath);
-			_playerPos = _tileMap.GetMeta("playerstart").As<Vector2I>();
-		}
-		else
-		{
-			Debug.Fail("TileMapPath path not set, check inspector.");
+			if (_tileMapPaths[i] != null && _tileMapPaths[i].ToString() != "")
+			{
+				GD.Print("DONE");
+			}
+			else
+			{
+				Debug.Fail("TileMapPath path not set, check inspector.");
+			}
 		}
 		
+		_tileMap = GetNode<TileMap>(_tileMapPaths[0]);
+		_tileMap.SetProcess(true);
+		_tileMap.Visible = true;
+		_playerPos = _tileMap.GetMeta("playerstart").As<Vector2I>();
+
+	}
+
+	public override void _Ready()
+	{
+		CheckLevels();
+
 		if (GetCellData(_playerPos.X, _playerPos.Y, IdLayer) != (int)TileValue.Start)
 		{
 			Debug.Fail("Start Position not valid, check inspector and set tile pos.");
@@ -330,7 +346,13 @@ public partial class Player : AnimatedSprite2D
 			case TileValue.End:
 				if (CheckEndCondition(_tileMap.GetMeta("end").As<Godot.Collections.Array<int>>()))
 				{
-					GetTree().Quit();
+					++levelIndex;
+					_tileMap.SetProcess(false);
+					_tileMap.Visible = false;
+					_tileMap = GetNode<TileMap>(_tileMapPaths[levelIndex]);
+					_tileMap.SetProcess(true);
+					_tileMap.Visible = true;
+					_playerPos = _tileMap.GetMeta("playerstart").As<Vector2I>();
 				}
 				direction.Y += y;
 				direction.X += x;
