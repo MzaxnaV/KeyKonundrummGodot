@@ -1,6 +1,5 @@
 [gd_scene load_steps=13 format=3 uid="uid://b1hj7ek2vhfs"]
 
-[ext_resource type="PackedScene" uid="uid://b8egqkaimprvt" path="res://Scenes/Level1.tscn" id="1_ohf5r"]
 [ext_resource type="SpriteFrames" uid="uid://bc02ygpf44b0v" path="res://Assets/data/sprite_frames.tres" id="2_cuex8"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="2_y2i5e"]
 [ext_resource type="Texture2D" uid="uid://cndq8xhsshqx" path="res://Assets/BAR.png" id="4_sr31s"]
@@ -12,10 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://jpkkyhs3y4sr" path="res://Assets/arrowinbar4.png" id="10_rh5sj"]
 [ext_resource type="Texture2D" uid="uid://bqagoevqjm573" path="res://Assets/arrowinbar-whenDropped2.png" id="11_rh1xg"]
 [ext_resource type="Texture2D" uid="uid://jed3t27oqlc4" path="res://Assets/arrowinbar2.png" id="11_xe1ev"]
+[ext_resource type="PackedScene" uid="uid://xcik4wwk1v0i" path="res://Scenes/map.tscn" id="12_leklq"]
 
 [node name="Game" type="Node2D"]
-
-[node name="Map" parent="." instance=ExtResource("1_ohf5r")]
 
 [node name="Player" type="AnimatedSprite2D" parent="."]
 z_index = 2
@@ -26,7 +24,7 @@ centered = false
 script = ExtResource("2_y2i5e")
 _tileMapPath = NodePath("../Map")
 _barPath = NodePath("../Bar")
-_tilePos = Vector2i(3, 2)
+_tilePos = Vector2i(1, 1)
 metadata/_edit_group_ = true
 
 [node name="Timer" type="Timer" parent="Player"]
@@ -86,3 +84,5 @@ texture = ExtResource("11_rh1xg")
 
 [node name="blue_right" type="Sprite2D" parent="Bar/bottom"]
 texture = ExtResource("11_xe1ev")
+
+[node name="Map" parent="." instance=ExtResource("12_leklq")]
