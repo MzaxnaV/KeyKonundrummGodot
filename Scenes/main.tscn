@@ -33,6 +33,9 @@ render_target_update_mode = 4
 [node name="Game" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_go487")]
 position = Vector2(300, 60)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6ofqr")
+
 [node name="Label" type="Label" parent="."]
 anchors_preset = 6
 anchor_left = 1.0
@@ -68,6 +71,3 @@ text = "KeyKonundrum"
 label_settings = SubResource("LabelSettings_0q6wr")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_6ofqr")

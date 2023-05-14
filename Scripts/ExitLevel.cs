@@ -14,7 +14,7 @@ public partial class ExitLevel : Node
 
 	public override void _Ready()
 	{
-		var music = GetChild<AudioStreamPlayer>(2);
+		var music = GetChild<AudioStreamPlayer>(1);
 		
 		music.Play();
 	}

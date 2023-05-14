@@ -182,7 +182,7 @@ public partial class Player : AnimatedSprite2D
 		{
 			if (_tileMapPaths[i] != null && _tileMapPaths[i].ToString() != "")
 			{
-				GD.Print("DONE");
+				GD.Print("DONE: " + i);
 			}
 			else
 			{
@@ -190,7 +190,7 @@ public partial class Player : AnimatedSprite2D
 			}
 		}
 		
-		_tileMap = GetNode<TileMap>(_tileMapPaths[0]);
+		_tileMap = GetNode<TileMap>(_tileMapPaths[levelIndex]);
 		_tileMap.SetProcess(true);
 		_tileMap.Visible = true;
 		_playerPos = _tileMap.GetMeta("playerstart").As<Vector2I>();
@@ -347,11 +347,15 @@ public partial class Player : AnimatedSprite2D
 				if (CheckEndCondition(_tileMap.GetMeta("end").As<Godot.Collections.Array<int>>()))
 				{
 					++levelIndex;
+					
 					_tileMap.SetProcess(false);
 					_tileMap.Visible = false;
+					
 					_tileMap = GetNode<TileMap>(_tileMapPaths[levelIndex]);
+					
 					_tileMap.SetProcess(true);
 					_tileMap.Visible = true;
+					
 					_playerPos = _tileMap.GetMeta("playerstart").As<Vector2I>();
 				}
 				direction.Y += y;
