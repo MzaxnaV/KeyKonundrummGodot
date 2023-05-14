@@ -11,4 +11,11 @@ public partial class ExitLevel : Node
 			GetTree().Quit();
 		}
 	}
+
+	public override void _Ready()
+	{
+		var music = GetChild<AudioStreamPlayer>(2);
+		
+		music.Play();
+	}
 }

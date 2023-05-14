@@ -50,3 +50,5 @@ friend"
 label_settings = SubResource("LabelSettings_mxb7p")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
