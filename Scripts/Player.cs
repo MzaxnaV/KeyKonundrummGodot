@@ -345,7 +345,11 @@ public partial class Player : AnimatedSprite2D
 				}
 				break;
 			case TileValue.End:
-				
+				var data = _tileMap.GetMeta("end").As <Godot.Collections.Array<int>>();
+				Debug.Print(data.ToString());
+				direction.Y += y;
+				direction.X += x;
+				break;
 			default:
 				direction.Y += y;
 				direction.X += x;
