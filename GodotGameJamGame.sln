@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotGameJamGame", "GodotGameJamGame.csproj", "{91B2624E-437B-4F86-897B-6C471FDCF49C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotGameJamGame", "GodotGameJamGame.csproj", "{FFC74795-FBA4-495A-8BD4-8240C2C2AFD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,11 +9,11 @@ Global
 	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{91B2624E-437B-4F86-897B-6C471FDCF49C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91B2624E-437B-4F86-897B-6C471FDCF49C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91B2624E-437B-4F86-897B-6C471FDCF49C}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
-		{91B2624E-437B-4F86-897B-6C471FDCF49C}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
-		{91B2624E-437B-4F86-897B-6C471FDCF49C}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
-		{91B2624E-437B-4F86-897B-6C471FDCF49C}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{FFC74795-FBA4-495A-8BD4-8240C2C2AFD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFC74795-FBA4-495A-8BD4-8240C2C2AFD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFC74795-FBA4-495A-8BD4-8240C2C2AFD2}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{FFC74795-FBA4-495A-8BD4-8240C2C2AFD2}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{FFC74795-FBA4-495A-8BD4-8240C2C2AFD2}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{FFC74795-FBA4-495A-8BD4-8240C2C2AFD2}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
 	EndGlobalSection
 EndGlobal
