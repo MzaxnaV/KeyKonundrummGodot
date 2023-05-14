@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8whe70o5fvco"]
+[gd_scene load_steps=6 format=3 uid="uid://b8whe70o5fvco"]
 
 [ext_resource type="Script" path="res://Scripts/ExitLevel.cs" id="1_8f2s7"]
 [ext_resource type="PackedScene" uid="uid://b1hj7ek2vhfs" path="res://Scenes/game.tscn" id="1_go487"]
+[ext_resource type="AudioStream" uid="uid://f5ipibjx25jr" path="res://8bit-music-for-game-68698.mp3" id="3_6ofqr"]
 
 [sub_resource type="SystemFont" id="SystemFont_kxyu2"]
 
@@ -52,3 +53,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6ofqr")
