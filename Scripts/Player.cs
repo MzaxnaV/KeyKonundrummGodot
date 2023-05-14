@@ -321,23 +321,6 @@ public partial class Player : AnimatedSprite2D
 						direction.Y += y;
 						direction.X += x;
 						break;
-					/*
-					 TODO: think this through
-					case 3:
-						direction.Y += y;
-						direction.X += x;
-						Debug.Print("Drop");
-						key = false;
-						// change the key to Pick
-						break;
-					case 4:
-						direction.Y += y;
-						direction.X += x;
-						Debug.Print("Pick");
-						// change the key to Drop
-						key = true;
-						break;
-					*/
 					default: 
 						direction.Y += 2 * y;
 						direction.X += 2 * x;
@@ -345,8 +328,10 @@ public partial class Player : AnimatedSprite2D
 				}
 				break;
 			case TileValue.End:
-				var data = _tileMap.GetMeta("end").As <Godot.Collections.Array<int>>();
-				Debug.Print(data.ToString());
+				if (CheckEndCondition(_tileMap.GetMeta("end").As<Godot.Collections.Array<int>>()))
+				{
+					GetTree().Quit();
+				}
 				direction.Y += y;
 				direction.X += x;
 				break;
@@ -355,5 +340,26 @@ public partial class Player : AnimatedSprite2D
 				direction.X += x;
 				break;
 		}
+	}
+	
+	private bool CheckEndCondition(Godot.Collections.Array<int> data)
+	{
+		// Convert the data array to a HashSet
+		HashSet<DirectionKey> dataSet = new HashSet<DirectionKey>();
+		foreach (int item in data)
+		{
+			if (Enum.IsDefined(typeof(DirectionKey), item))
+			{
+				dataSet.Add((DirectionKey)item);
+			}
+			else
+			{
+				GD.Print($"Invalid value {item} in data");
+				return false;
+			}
+		}
+
+		// Compare the two sets
+		return dataSet.SetEquals(_enabledKeys);
 	}
 }
