@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://b1hj7ek2vhfs"]
 
-[ext_resource type="PackedScene" uid="uid://dge14m80vcxyg" path="res://Scenes/level4.tscn" id="1_4wpcv"]
+[ext_resource type="PackedScene" uid="uid://b8egqkaimprvt" path="res://Scenes/Level1.tscn" id="1_ohf5r"]
 [ext_resource type="SpriteFrames" uid="uid://bc02ygpf44b0v" path="res://Assets/data/sprite_frames.tres" id="2_cuex8"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="2_y2i5e"]
 [ext_resource type="Texture2D" uid="uid://cndq8xhsshqx" path="res://Assets/BAR.png" id="4_sr31s"]
@@ -15,7 +15,7 @@
 
 [node name="Game" type="Node2D"]
 
-[node name="Level4" parent="." instance=ExtResource("1_4wpcv")]
+[node name="Map" parent="." instance=ExtResource("1_ohf5r")]
 
 [node name="Player" type="AnimatedSprite2D" parent="."]
 z_index = 2
@@ -24,9 +24,9 @@ sprite_frames = ExtResource("2_cuex8")
 animation = &"walk"
 centered = false
 script = ExtResource("2_y2i5e")
-_tileMapPath = NodePath("../Level4")
+_tileMapPath = NodePath("../Map")
 _barPath = NodePath("../Bar")
-_tilePos = Vector2i(4, 4)
+_tilePos = Vector2i(3, 2)
 metadata/_edit_group_ = true
 
 [node name="Timer" type="Timer" parent="Player"]

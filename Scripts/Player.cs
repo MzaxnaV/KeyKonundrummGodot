@@ -120,19 +120,15 @@ public partial class Player : AnimatedSprite2D
 		switch (GetCellData(_tilePos.X, _tilePos.Y))
 		{
 			case 3:
-            	Debug.Print("Drop");
-            	key = false;
-                
-                GD.Print(GetCellData(_tilePos.X, _tilePos.Y));
-                _tileMap.SetCell(1, _tilePos, 7, new Vector2I(1, 0), 5);
-                GD.Print(GetCellData(_tilePos.X, _tilePos.Y));
-                
-            	break;
-            case 4:
-            	Debug.Print("Pick");
-                // TODO: change the current tile to have 3 as cell data
-            	key = true;
-            	break;
+				Debug.Print("Drop");
+				key = false;
+				// change the key to Pick
+				break;
+			case 4:
+				Debug.Print("Pick");
+				// change the key to Drop
+				key = true;
+				break;
 		}
 
 		// check the cell data
