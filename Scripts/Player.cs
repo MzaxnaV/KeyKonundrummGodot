@@ -1,6 +1,10 @@
-using System;
 using Godot;
 using System.Diagnostics;
+
+public enum key
+{
+	Up, Down, Left, Right
+}
 
 public partial class Player : AnimatedSprite2D
 {
@@ -118,11 +122,15 @@ public partial class Player : AnimatedSprite2D
 			case 3:
             	Debug.Print("Drop");
             	key = false;
-            	// change the key to Pick
+                
+                GD.Print(GetCellData(_tilePos.X, _tilePos.Y));
+                _tileMap.SetCell(1, _tilePos, 7, new Vector2I(1, 0), 5);
+                GD.Print(GetCellData(_tilePos.X, _tilePos.Y));
+                
             	break;
             case 4:
             	Debug.Print("Pick");
-            	// change the key to Drop
+                // TODO: change the current tile to have 3 as cell data
             	key = true;
             	break;
 		}
