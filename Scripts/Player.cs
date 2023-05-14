@@ -122,7 +122,11 @@ public partial class Player : AnimatedSprite2D
 			case 3:
 				Debug.Print("Drop");
 				key = false;
-				// change the key to Pick
+				
+				GD.Print("Tile value before: " + GetCellData(_tilePos.X, _tilePos.Y));
+				_tileMap.SetCell(1, _tilePos, 7, new Vector2I(1, 0), 5);
+				GD.Print("Tile value after: " + GetCellData(_tilePos.X, _tilePos.Y));
+				
 				break;
 			case 4:
 				Debug.Print("Pick");
