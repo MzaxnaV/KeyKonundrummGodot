@@ -1,5 +1,6 @@
 using Godot;
-using System;
+
+namespace GodotGameJamGame.Scripts;
 
 public partial class ExitLevel : Node
 {
