@@ -287,6 +287,7 @@ public partial class Player : AnimatedSprite2D
 
 	private void SetTurn(ref Vector2I direction, DirectionKey key, int x, int y)
 	{
+		// check current cell data
 		switch ((TileValue)GetCellData(_playerPos.X, _playerPos.Y, IdLayer))
 		{
 			case TileValue.Drop:
@@ -343,6 +344,8 @@ public partial class Player : AnimatedSprite2D
 						break;
 				}
 				break;
+			case TileValue.End:
+				
 			default:
 				direction.Y += y;
 				direction.X += x;

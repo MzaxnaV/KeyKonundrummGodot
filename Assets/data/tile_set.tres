@@ -1,6 +1,15 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://3vr7g0j88jq2"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://3vr7g0j88jq2"]
 
 [ext_resource type="Texture2D" uid="uid://dldv3n7i3kv13" path="res://Assets/tile_map.png" id="1_8c6ao"]
+[ext_resource type="Texture2D" uid="uid://d013tfqnr2jvc" path="res://Assets/arrow_tile_map.png" id="1_bevm8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_anut8"]
+texture = ExtResource("1_bevm8")
+texture_region_size = Vector2i(36, 36)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgoog"]
 resource_name = "end"
@@ -48,4 +57,5 @@ custom_data_layer_0/type = 2
 custom_data_layer_1/name = "key"
 custom_data_layer_1/type = 2
 sources/7 = SubResource("TileSetAtlasSource_vgoog")
-tile_proxies/coords_level = [[0, Vector2i(0, 0)], [6, Vector2i(0, 0)], [1, Vector2i(0, 0)], [7, Vector2i(0, 0)], [2, Vector2i(0, 0)], [7, Vector2i(1, 0)], [7, Vector2i(0, 0)], [27, Vector2i(0, 0)], [8, Vector2i(0, 0)], [27, Vector2i(1, 0)], [17, Vector2i(0, 0)], [27, Vector2i(2, 0)], [17, Vector2i(1, 0)], [27, Vector2i(3, 0)], [17, Vector2i(2, 0)], [27, Vector2i(4, 0)], [17, Vector2i(3, 0)], [27, Vector2i(5, 0)], [17, Vector2i(4, 0)], [27, Vector2i(6, 0)], [17, Vector2i(5, 0)], [27, Vector2i(7, 0)], [18, Vector2i(0, 0)], [27, Vector2i(8, 0)], [20, Vector2i(0, 0)], [27, Vector2i(9, 0)], [21, Vector2i(0, 0)], [27, Vector2i(10, 0)], [22, Vector2i(0, 0)], [27, Vector2i(11, 0)]]
+sources/5 = SubResource("TileSetAtlasSource_anut8")
+tile_proxies/coords_level = [[0, Vector2i(0, 0)], [6, Vector2i(0, 0)], [1, Vector2i(0, 0)], [5, Vector2i(0, 0)], [2, Vector2i(0, 0)], [5, Vector2i(1, 0)], [3, Vector2i(0, 0)], [5, Vector2i(2, 0)], [4, Vector2i(0, 0)], [5, Vector2i(3, 0)], [7, Vector2i(0, 0)], [27, Vector2i(0, 0)], [8, Vector2i(0, 0)], [27, Vector2i(1, 0)], [17, Vector2i(0, 0)], [27, Vector2i(2, 0)], [17, Vector2i(1, 0)], [27, Vector2i(3, 0)], [17, Vector2i(2, 0)], [27, Vector2i(4, 0)], [17, Vector2i(3, 0)], [27, Vector2i(5, 0)], [17, Vector2i(4, 0)], [27, Vector2i(6, 0)], [17, Vector2i(5, 0)], [27, Vector2i(7, 0)], [18, Vector2i(0, 0)], [27, Vector2i(8, 0)], [20, Vector2i(0, 0)], [27, Vector2i(9, 0)], [21, Vector2i(0, 0)], [27, Vector2i(10, 0)], [22, Vector2i(0, 0)], [27, Vector2i(11, 0)]]
