@@ -22,8 +22,6 @@ public partial class Player : AnimatedSprite2D
 	
 	[Export] private NodePath _tileMapPath;
 	[Export] private NodePath _barPath;
-	[Export] private NodePath _gamePath;
-	[Export] private Vector2I _tilePos;
 
 	[Export] private NodePath _upRedPath;
 	[Export] private NodePath _upBluePath;
@@ -63,6 +61,8 @@ public partial class Player : AnimatedSprite2D
 
 	private const string IdLayer = "id";
 	private const string KeyLayer = "key";
+	
+	private Vector2I _playerPos;
 
 	private Godot.Collections.Dictionary<Vector2I, Sprite2D> arrows = new ();
 
@@ -178,10 +178,21 @@ public partial class Player : AnimatedSprite2D
 		if (_tileMapPath != null && _tileMapPath.ToString() != "")
 		{
 			_tileMap = GetNode<TileMap>(_tileMapPath);
+			_playerPos = _tileMap.GetMeta("playerStart").As<Vector2I>();
 		}
 		else
 		{
 			Debug.Fail("TileMapPath path not set, check inspector.");
+		}
+		
+		if (GetCellData(_playerPos.X, _playerPos.Y, IdLayer) != (int)TileValue.Start)
+		{
+			Debug.Fail("Start Position not valid, check inspector and set tile pos.");
+		}
+		else
+		{
+			_tileMap.SetCell(1, _playerPos);
+			Position = Size * _playerPos;
 		}
 		
 		if (_barPath != null && _barPath.ToString() != "")
@@ -198,16 +209,6 @@ public partial class Player : AnimatedSprite2D
 
 		Play();
 
-		if (GetCellData(_tilePos.X, _tilePos.Y, IdLayer) != (int)TileValue.Start)
-		{
-			Debug.Fail("Start Position not valid, check inspector and set tile pos.");
-		}
-		else
-		{
-			_tileMap.SetCell(1, _tilePos);
-			Position = Size * _tilePos;
-		}
-		
 		_enabledKeys.Add(DirectionKey.Up);
 		_enabledKeys.Add(DirectionKey.Down);
 		_enabledKeys.Add(DirectionKey.Right);
@@ -255,8 +256,8 @@ public partial class Player : AnimatedSprite2D
 		}
 
 		if (direction == new Vector2I(0, 0)) return;
-		_tilePos += direction;
-		Position = Size * _tilePos;
+		_playerPos += direction;
+		Position = Size * _playerPos;
 		_isMoving = true;
 			
 		_timer.Start();
@@ -276,44 +277,44 @@ public partial class Player : AnimatedSprite2D
 
 	private void PrintCellTileData(Vector2I tilePos, string stuff)
 	{
-		GD.Print(stuff + ", Cell" + tilePos + " : " + Enum.GetName((TileValue)GetCellData(_tilePos.X, _tilePos.Y, IdLayer)));
+		GD.Print(stuff + ", Cell" + tilePos + " : " + Enum.GetName((TileValue)GetCellData(_playerPos.X, _playerPos.Y, IdLayer)));
 	}
 	
 	private void PrintCellKeyData(Vector2I tilePos, string stuff)
 	{
-		GD.Print(stuff + ", Cell" + tilePos + " : " + Enum.GetName((DirectionKey)GetCellData(_tilePos.X, _tilePos.Y, KeyLayer)));
+		GD.Print(stuff + ", Cell" + tilePos + " : " + Enum.GetName((DirectionKey)GetCellData(_playerPos.X, _playerPos.Y, KeyLayer)));
 	}
 
 	private void SetTurn(ref Vector2I direction, DirectionKey key, int x, int y)
 	{
-		switch ((TileValue)GetCellData(_tilePos.X, _tilePos.Y, IdLayer))
+		switch ((TileValue)GetCellData(_playerPos.X, _playerPos.Y, IdLayer))
 		{
 			case TileValue.Drop:
 				RemoveKey(key);
 				
-				_tileMap.SetCell(1, _tilePos, 7, new Vector2I(1, 0), 5);
-				_tileMap.GetCellTileData(1, _tilePos).SetCustomData(KeyLayer, (int)key);
+				_tileMap.SetCell(1, _playerPos, 7, new Vector2I(1, 0), 5);
+				_tileMap.GetCellTileData(1, _playerPos).SetCustomData(KeyLayer, (int)key);
 
-				AddArrow(_tilePos, key);
+				AddArrow(_playerPos, key);
 
 				break;
 			case TileValue.PickUp:
-				AddKey((DirectionKey)GetCellData(_tilePos.X, _tilePos.Y, KeyLayer));
+				AddKey((DirectionKey)GetCellData(_playerPos.X, _playerPos.Y, KeyLayer));
 				
-				_tileMap.SetCell(1, _tilePos, 7, new Vector2I(1, 0), 3);
+				_tileMap.SetCell(1, _playerPos, 7, new Vector2I(1, 0), 3);
 				
-				RemoveArrow(_tilePos);
+				RemoveArrow(_playerPos);
 
 				break;
 		}
 
 		// check the cell data
-		switch ((TileValue)GetCellData(_tilePos.X + x, _tilePos.Y + y, IdLayer))
+		switch ((TileValue)GetCellData(_playerPos.X + x, _playerPos.Y + y, IdLayer))
 		{
 			case TileValue.Wall:
 				break;
 			case TileValue.Move:
-				switch ((TileValue)GetCellData(_tilePos.X + 2 * x, _tilePos.Y + 2 * y, IdLayer))
+				switch ((TileValue)GetCellData(_playerPos.X + 2 * x, _playerPos.Y + 2 * y, IdLayer))
 				{
 					case TileValue.Wall:
 						direction.Y += y;
