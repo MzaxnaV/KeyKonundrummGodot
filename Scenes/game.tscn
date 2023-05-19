@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://b1hj7ek2vhfs"]
+[gd_scene load_steps=18 format=3 uid="uid://b1hj7ek2vhfs"]
 
 [ext_resource type="SpriteFrames" uid="uid://bc02ygpf44b0v" path="res://Assets/data/sprite_frames.tres" id="2_cuex8"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="2_y2i5e"]
-[ext_resource type="Texture2D" uid="uid://dwmbtriy6mjc1" path="res://Assets/arrowinbar.png" id="3_xki07"]
 [ext_resource type="Texture2D" uid="uid://cndq8xhsshqx" path="res://Assets/BAR.png" id="4_sr31s"]
 [ext_resource type="Texture2D" uid="uid://m4impco8dj5e" path="res://Assets/arrowinbar-whenDropped1.png" id="5_nj3wf"]
 [ext_resource type="Texture2D" uid="uid://bmipv52rx7eg2" path="res://Assets/arrowinbar1.png" id="6_bqqkx"]
@@ -38,7 +37,7 @@ _leftRedPath = NodePath("../Bar/left/red_left")
 _leftBluePath = NodePath("../Bar/left/blue_left")
 _rightRedPath = NodePath("../Bar/right/red_right")
 _rightBluePath = NodePath("../Bar/right/blue_right")
-_arrowTex = ExtResource("3_xki07")
+_arrowTex = ExtResource("6_bqqkx")
 metadata/_edit_group_ = true
 metadata/playerStart = Vector2i(4, 4)
 
