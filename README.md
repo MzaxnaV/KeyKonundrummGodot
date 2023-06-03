@@ -1,2 +1,2 @@
-# GoGodotGame
-Repo for go godot game jam game
+# KeyKonundrumm
+Repo for go godot game jam game hosted here: https://ccccrrr.itch.io/keykonundrumm
