@@ -106,6 +106,7 @@ public partial class Player : AnimatedSprite2D
 				_rightRed.Visible = true;
 				break;
 
+			case DirectionKey.None:
 			default:
 				GD.Print("Invalid direction key");
 				break;
@@ -137,6 +138,7 @@ public partial class Player : AnimatedSprite2D
 				_rightRed.Visible = false;
 				break;
 
+			case DirectionKey.None:
 			default:
 				GD.Print("Invalid direction key");
 				break;
